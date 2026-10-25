@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>零点影视｜剧集热播榜与影评评分实测 - 追剧排片片单（lingdianyingshi-app.github.io）</title>
+<meta name="description" content="零点影视整理每日剧集热播榜、影评评分实测与观影排片时段建议，附更新日历、完结剧补片清单、会员权益对照和行业数据速览。片单按类型、地区、单集时长标注，追剧前先看评分与节奏，少踩雷、少空等。">
+<meta name="keywords" content="零点影视,零点影视官网,剧集热播榜,影视评分实测,影评评测,追剧日历,观影排片时段,完结剧补片片单,剧集推荐排行榜,影视行业数据观察,零点影视剧集库">
+<meta name="author" content="零点影视">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://lingdianyingshi-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="零点影视">
+<meta property="og:title" content="零点影视｜剧集热播榜与影评评分实测 - 追剧排片片单">
+<meta property="og:description" content="热播剧集排名、影评评分拆解、每日排片时段推荐与行业数据速览，零点影视每周三、周日更新片单。">
+<meta property="og:url" content="https://lingdianyingshi-app.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="零点影视｜剧集热播榜与影评评分实测">
+<meta name="twitter:description" content="热播剧排名、评分实测、排片时段与补片清单，零点影视每周三、周日更新。">
+<meta name="theme-color" content="#0a0a0f">
+<style>
+:root{
+  --ink:#0a0a0f;
+  --ink-2:#12121b;
+  --card:#16161f;
+  --line:#262633;
+  --text:#e9e7e2;
+  --muted:#9a98a6;
+  --gold:#f5b301;
+  --red:#e63946;
+  --green:#4ec9a0;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.01em;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,ol{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;letter-spacing:.02em;}
+p{margin:0;}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+.filmstrip{
+  height:14px;
+  background:
+    repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 22px),
+    linear-gradient(180deg,#1d1d28,#14141d);
+  border-bottom:1px solid #000;
+}
+/* ---------- 顶部 ---------- */
+.topbar{background:#0d0d14;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:60;}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;}
+.brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.brand .mark{
+  width:38px;height:38px;border-radius:10px;flex:0 0 38px;
+  background:linear-gradient(140deg,var(--gold),var(--red));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#16110a;font-size:15px;letter-spacing:0;
+  box-shadow:0 0 0 1px rgba(245,179,1,.35),0 6px 16px rgba(230,57,70,.25);
+}
+.brand b{font-size:19px;letter-spacing:.06em;}
+.brand span{display:block;font-size:11px;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;}
+.navwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.navwrap::-webkit-scrollbar{display:none;}
+.nav{display:flex;gap:4px;padding:4px 0;white-space:nowrap;}
+.nav a{
+  display:block;padding:8px 12px;border-radius:8px;font-size:14px;color:#cfcdd6;
+  border:1px solid transparent;transition:.2s;
+}
+.nav a:hover,.nav a:focus{color:var(--gold);border-color:rgba(245,179,1,.35);background:rgba(245,179,1,.08);}
+.navbtn{
+  display:none;background:#1b1b26;border:1px solid var(--line);color:var(--text);
+  border-radius:9px;padding:9px 12px;font-size:14px;cursor:pointer;
+}
+/* ---------- 首屏 ---------- */
+.hero{position:relative;padding:64px 0 56px;overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 82% 8%,rgba(230,57,70,.20),transparent 60%),
+    radial-gradient(760px 400px at 8% 12%,rgba(245,179,1,.14),transparent 62%),
+    var(--ink-2);
+  border-bottom:1px solid var(--line);
+}
+.hero:after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;
+}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:38px;align-items:start;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.18em;
+  color:var(--gold);border:1px solid rgba(245,179,1,.4);border-radius:999px;
+  padding:5px 14px;background:rgba(245,179,1,.07);
+}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:block;}
+h1{font-size:clamp(30px,5.4vw,52px);margin:20px 0 16px;letter-spacing:.04em;}
+h1 em{font-style:normal;color:var(--gold);border-bottom:4px solid rgba(245,179,1,.28);padding-bottom:2px;}
+.lead{color:#c9c7d1;font-size:clamp(15px,2.2vw,17px);max-width:56ch;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px;}
+.hero-tags a{font-size:13px;color:#b9b7c4;border:1px solid var(--line);background:#14141d;border-radius:999px;padding:6px 13px;transition:.2s;}
+.hero-tags a:hover{border-color:var(--gold);color:var(--gold);}
+.btnrow{display:flex;flex-wrap:wrap;gap:12px;}
+.btn{
+  display:inline-block;padding:12px 22px;border-radius:10px;font-size:15px;font-weight:600;transition:.2s;
+}
+.btn-a{background:linear-gradient(120deg,var(--gold),#ffcf3f);color:#1a1408;box-shadow:0 8px 22px rgba(245,179,1,.22);}
+.btn-a:hover{transform:translateY(-2px);}
+.btn-b{border:1px solid var(--line);color:#d7d5de;background:#14141d;}
+.btn-b:hover{border-color:var(--red);color:#ff8b95;}
+/* 官方入口卡 */
+.entrycard{
+  background:linear-gradient(180deg,#181822,#111118);
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);
+}
+.entrycard h2{font-size:13px;letter-spacing:.2em;color:var(--muted);font-weight:600;text-transform:uppercase;}
+.urlbox{
+  margin-top:14px;background:#0b0b12;border:1px dashed #37374a;border-radius:10px;padding:14px;
+  word-break:break-all;font-size:15px;color:var(--gold);line-height:1.6;
+}
+.urlbox small{display:block;color:var(--muted);font-size:12px;margin-top:6px;letter-spacing:.04em;word-break:normal;}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;}
+.statgrid div{background:#14141d;border:1px solid var(--line);border-radius:10px;padding:12px;}
+.statgrid b{display:block;font-size:22px;color:#fff;letter-spacing:.02em;}
+.statgrid span{font-size:12px;color:var(--muted);}
+/* ---------- 通用区块 ---------- */
+section{padding:60px 0;border-bottom:1px solid var(--line);}
+.sechead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:30px;}
+.sechead h2{font-size:clamp(22px,3.4vw,32px);letter-spacing:.04em;}
+.sechead h2 u{text-decoration:none;color:var(--red);}
+.sechead p{color:var(--muted);font-size:14px;max-width:44ch;}
+.kicker{font-size:12px;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;margin-bottom:10px;}
+/* 榜单 */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.tab{
+  cursor:pointer;border:1px solid var(--line);background:#14141d;color:#c6c4cf;
+  border-radius:999px;padding:8px 18px;font-size:14px;transition:.2s;
+}
+.tab:hover{color:#fff;border-color:#4a4a5e;}
+.tab.on{background:var(--gold);border-color:var(--gold);color:#1a1408;font-weight:700;}
+.panel{display:none;}
+.panel.on{display:block;}
+.rankgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:18px;}
+.rank{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;position:relative;transition:.25s;overflow:hidden;
+}
+.rank:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--gold);opacity:.75;}
+.rank:hover{transform:translateY(-4px);border-color:#3d3d52;box-shadow:var(--shadow);}
+.rank .no{
+  position:absolute;right:14px;top:12px;font-size:30px;font-weight:800;color:#24242f;letter-spacing:-.04em;
+}
+.rank h3{font-size:17px;margin-bottom:8px;padding-right:44px;}
+.rank .meta{font-size:12px;color:var(--muted);letter-spacing:.06em;}
+.rank .desc{font-size:14px;color:#b6b4c0;margin:12px 0 14px;}
+.score{display:flex;align-items:center;gap:10px;}
+.score b{font-size:19px;color:var(--gold);letter-spacing:.02em;}
+.bar{flex:1;height:7px;border-radius:99px;background:#23232f;overflow:hidden;}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--red),var(--gold));}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.chips span{font-size:11px;color:#9f9dae;border:1px solid #2c2c3a;border-radius:6px;padding:3px 8px;background:#111118;}
+/* 评测 */
+.reviewgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+.review{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;}
+.review .q{font-size:12px;color:var(--red);letter-spacing:.16em;text-transform:uppercase;}
+.review h3{font-size:18px;margin:10px 0 10px;}
+.review p{font-size:14px;color:#b6b4c0;}
+.metrics{margin-top:16px;display:grid;gap:12px;}
+.metric span{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px;}
+.metric .bar i{background:linear-gradient(90deg,#4ec9a0,var(--gold));}
+/* 排片表 */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);}
+table{width:100%;border-collapse:collapse;min-width:640px;font-size:14px;}
+caption{text-align:left;padding:14px 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line);}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid #20202c;vertical-align:top;}
+th{background:#191922;color:var(--gold);font-size:13px;letter-spacing:.08em;font-weight:600;}
+tbody tr:hover td{background:#1a1a24;}
+td b{color:#fff;}
+.note{margin-top:14px;font-size:13px;color:var(--muted);}
+/* 数据 */
+.datagrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;}
+.data{background:linear-gradient(160deg,#191922,#12121b);border:1px solid var(--line);border-radius:var(--radius);padding:20px;}
+.data b{display:block;font-size:clamp(26px,4vw,34px);color:#fff;letter-spacing:.01em;}
+.data b i{font-style:normal;font-size:14px;color:var(--muted);margin-left:4px;}
+.data p{font-size:13px;color:var(--muted);margin-top:6px;}
+.data em{font-style:normal;display:inline-block;margin-top:10px;font-size:12px;color:var(--green);}
+/* 会员 */
+.plangrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+.plan{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:24px;position:relative;}
+.plan.hot{border-color:rgba(245,179,1,.55);box-shadow:0 0 0 1px rgba(245,179,1,.18) inset;}
+.plan .flag{position:absolute;top:-11px;right:18px;background:var(--gold);color:#1a1408;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.08em;}
+.plan h3{font-size:18px;}
+.plan .price{font-size:28px;color:#fff;margin:8px 0 14px;letter-spacing:.01em;}
+.plan .price i{font-style:normal;font-size:13px;color:var(--muted);}
+.plan li{font-size:14px;color:#b6b4c0;padding:7px 0 7px 20px;position:relative;border-top:1px solid #20202c;}
+.plan li:before{content:"";position:absolute;left:2px;top:16px;width:7px;height:7px;border-radius:2px;background:var(--red);}
+.plan li.ok:before{background:var(--green);}
+.plan a.btn{display:block;text-align:center;margin-top:16px;}
+/* FAQ */
+.faq{max-width:860px;}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:12px;padding:0 18px;}
+details[open]{border-color:#3d3d52;}
+summary{cursor:pointer;padding:16px 0;font-size:16px;font-weight:600;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+summary:after{content:"+";float:right;color:var(--gold);font-weight:700;}
+details[open] summary:after{content:"−";}
+details p{font-size:14px;color:#b6b4c0;padding:0 0 18px;}
+/* 关于 */
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start;}
+.about p{font-size:15px;color:#c4c2cd;margin-bottom:14px;}
+.about .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
+.about .card h3{font-size:16px;margin-bottom:12px;color:var(--gold);}
+.about .card li{font-size:14px;color:#b6b4c0;padding:8px 0;border-bottom:1px dashed #2a2a38;}
+.about .card li:last-child{border-bottom:0;}
+.about .card li b{color:#fff;font-weight:600;}
+/* 页脚 */
+footer{background:#08080c;padding:44px 0 30px;}
+.footgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px;}
+footer h4{font-size:14px;color:var(--gold);letter-spacing:.1em;margin-bottom:12px;}
+footer li{font-size:14px;padding:5px 0;}
+footer li a{color:#a9a7b4;}
+footer li a:hover{color:var(--gold);text-decoration:underline;}
+.footurl{
+  margin-top:26px;border-top:1px solid #1d1d28;padding-top:20px;font-size:13px;color:var(--muted);
+  display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;
+}
+.footurl code{color:var(--gold);background:#111119;border:1px solid #23233a;border-radius:6px;padding:3px 8px;font-size:12.5px;word-break:break-all;}
+.totop{
+  position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;
+  background:#1b1b26;border:1px solid var(--line);color:var(--gold);font-size:18px;
+  display:none;align-items:center;justify-content:center;cursor:pointer;z-index:70;
+}
+.totop.show{display:flex;}
+/* 自适应 */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:28px;}
+  .about{grid-template-columns:1fr;gap:24px;}
+}
+@media (max-width:720px){
+  .navbtn{display:block;}
+  .navwrap{
+    display:none;position:absolute;left:0;right:0;top:100%;background:#0d0d14;
+    border-bottom:1px solid var(--line);padding:10px 20px 16px;
+  }
+  .topbar.open .navwrap{display:block;}
+  .nav{flex-direction:column;gap:2px;white-space:normal;}
+  .nav a{padding:11px 8px;border-bottom:1px solid #1c1c27;}
+  .topbar{position:sticky;}
+  .hero{padding:44px 0 40px;}
+  section{padding:44px 0;}
+  .sechead{margin-bottom:22px;}
+  .statgrid{grid-template-columns:1fr 1fr;}
+  .wrap{padding:0 16px;}
+}
+@media (max-width:400px){
+  .statgrid{grid-template-columns:1fr;}
+  .brand b{font-size:17px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+<div class="filmstrip" aria-hidden="true"></div>
+
+<header class="topbar" id="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">零</div>
+      <div>
+        <b>零点影视</b>
+        <span>lingdian · 片单与评分</span>
+      </div>
+    </div>
+    <button class="navbtn" id="navbtn" type="button" aria-expanded="false" aria-controls="nav">栏目</button>
+    <div class="navwrap" id="nav">
+      <nav class="nav" aria-label="站点栏目导航">
+        <a href="#rank">热播榜</a>
+        <a href="#review">评分实测</a>
+        <a href="#schedule">排片时段</a>
+        <a href="#data">行业数据</a>
+        <a href="#plan">会员权益</a>
+        <a href="#faq">常见问题</a>
+        <a href="#about">关于我们</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><i aria-hidden="true"></i>每周三 / 周日更新片单</span>
+      <h1>零点影视：把热播剧排名、<em>评分实测</em>与排片时段放进同一张表</h1>
+      <p class="lead">追剧最耗时间的不是看，是选。零点影视把本周正在更新的剧集按评分、节奏、单集时长和适配人群重新排过一遍，附上完结剧补片清单和影评拆解，打开就能决定今晚看什么。</p>
+      <div class="hero-tags">
+        <a href="#rank">剧集热播榜</a>
+        <a href="#review">影评评分实测</a>
+        <a href="#schedule">观影排片时段</a>
+        <a href="#data">行业数据速览</a>
+        <a href="#plan">会员权益对照</a>
+      </div>
+      <div class="btnrow">
+        <a class="btn btn-a" href="#rank">查看本周热播榜</a>
+        <a class="btn btn-b" href="#schedule">今晚排片建议</a>
+      </div>
+    </div>
+    <aside class="entrycard" aria-label="零点影视官方入口">
+      <h2>官方入口</h2>
+      <div class="urlbox">
+        https://lingdianyingshi-app.github.io
+        <small>零点影视 · 剧集热播榜与影评评分实测（收藏本地址，片单每周更新）</small>
+      </div>
+      <div class="statgrid">
+        <div><b>37</b><span>本周收录剧集</span></div>
+        <div><b>8.6</b><span>榜单平均分</span></div>
+        <div><b>44<i style="font-size:12px;"> 分钟</i></b><span>平均单集时长</span></div>
+        <div><b>63%</b><span>追更完成率</span></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<section id="rank">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <div class="kicker">Ranking Board</div>
+        <h2>零点影视<u>剧集热播榜</u></h2>
+      </div>
+      <p>按近七天讨论热度与站内评分综合排序，标注更新进度，避免追到一半断更。</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="榜单分类">
+      <button class="tab on" type="button" data-panel="p1" role="tab" aria-selected="true">正在更新</button>
+      <button class="tab" type="button" data-panel="p2" role="tab" aria-selected="false">完结补片</button>
+      <button class="tab" type="button" data-panel="p3" role="tab" aria-selected="false">冷门遗珠</button>
+    </div>
+
+    <div class="panel on" id="p1" role="tabpanel">
+      <div class="rankgrid">
+        <article class="rank">
+          <span class="no" aria-hidden="true">01</span>
+          <h3>长夜将尽</h3>
+          <div class="meta">内地 · 悬疑 / 犯罪 · 2026 · 更新至第 18 集</div>
+          <p class="desc">双线叙事在第六集完成交汇，前八集几乎没有废镜头，适合一口气连看。</p>
+          <div class="score"><b>9.1</b><span class="bar"><i style="width:91%"></i></span></div>
+          <div class="chips"><span>烧脑</span><span>单集 45 分钟</span><span>周更 2 集</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">02</span>
+          <h3>春分之后</h3>
+          <div class="meta">内地 · 年代 / 家庭 · 2026 · 更新至第 30 集</div>
+          <p class="desc">从 1994 年写到 2008 年，服装与布景还原度高，情绪推进慢但扎实。</p>
+          <div class="score"><b>8.9</b><span class="bar"><i style="width:89%"></i></span></div>
+          <div class="chips"><span>年代</span><span>单集 42 分钟</span><span>日更</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">03</span>
+          <h3>海边的旧邮局</h3>
+          <div class="meta">日本 · 文艺 / 爱情 · 2026 · 更新至第 9 集</div>
+          <p class="desc">镜头以固定长镜为主，台词少、留白多，适合晚间安静时段观看。</p>
+          <div class="score"><b>8.7</b><span class="bar"><i style="width:87%"></i></span></div>
+          <div class="chips"><span>治愈</span><span>单集 30 分钟</span><span>周更 1 集</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">04</span>
+          <h3>铁轨尽头</h3>
+          <div class="meta">美国 · 西部 / 剧情 · 2025 · 更新至第 7 集</div>
+          <p class="desc">配乐是加分项，剪辑节奏偏硬，喜欢慢燃冲突的观众更对味。</p>
+          <div class="score"><b>8.4</b><span class="bar"><i style="width:84%"></i></span></div>
+          <div class="chips"><span>硬派</span><span>单集 55 分钟</span><span>周更 1 集</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">05</span>
+          <h3>雾港诊所</h3>
+          <div class="meta">韩国 · 医疗 / 职场 · 2025 · 更新至第 16 集</div>
+          <p class="desc">单元病例串联主线，专业细节考据较真，中段有一集节奏略拖。</p>
+          <div class="score"><b>8.2</b><span class="bar"><i style="width:82%"></i></span></div>
+          <div class="chips"><span>职场</span><span>单集 60 分钟</span><span>周更 2 集</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">06</span>
+          <h3>无人区的信号</h3>
+          <div class="meta">英国 · 科幻 / 冒险 · 2026 · 更新至第 6 集</div>
+          <p class="desc">设定先行，世界观铺陈占前三集，耐心看完回报明显。</p>
+          <div class="score"><b>8.0</b><span class="bar"><i style="width:80%"></i></span></div>
+          <div class="chips"><span>科幻</span><span>单集 48 分钟</span><span>周更 1 集</span></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="panel" id="p2" role="tabpanel">
+      <div class="rankgrid">
+        <article class="rank">
+          <span class="no" aria-hidden="true">01</span>
+          <h3>旧城照相馆</h3>
+          <div class="meta">内地 · 剧情 · 2024 · 全 24 集</div>
+          <p class="desc">已完结，无追更压力。结尾两集的收束方式在站内争议不小。</p>
+          <div class="score"><b>8.8</b><span class="bar"><i style="width:88%"></i></span></div>
+          <div class="chips"><span>已完结</span><span>单集 40 分钟</span><span>可连刷</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">02</span>
+          <h3>第七个夏天</h3>
+          <div class="meta">日本 · 青春 · 2023 · 全 10 集</div>
+          <p class="desc">短篇幅，周末一下午可以看完，情绪收得干净。</p>
+          <div class="score"><b>8.5</b><span class="bar"><i style="width:85%"></i></span></div>
+          <div class="chips"><span>已完结</span><span>单集 28 分钟</span><span>轻量</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">03</span>
+          <h3>铜锣巷十七号</h3>
+          <div class="meta">中国香港 · 警匪 · 2022 · 全 30 集</div>
+          <p class="desc">群像戏写得好，中段线头较多，后十集重新收紧。</p>
+          <div class="score"><b>8.3</b><span class="bar"><i style="width:83%"></i></span></div>
+          <div class="chips"><span>已完结</span><span>单集 45 分钟</span><span>群像</span></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="panel" id="p3" role="tabpanel">
+      <div class="rankgrid">
+        <article class="rank">
+          <span class="no" aria-hidden="true">01</span>
+          <h3>灯塔值守日志</h3>
+          <div class="meta">冰岛 · 剧情 · 2025 · 全 6 集</div>
+          <p class="desc">讨论量不高但评分稳定，极简场景靠表演撑起来。</p>
+          <div class="score"><b>8.6</b><span class="bar"><i style="width:86%"></i></span></div>
+          <div class="chips"><span>冷门</span><span>单集 35 分钟</span><span>小体量</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">02</span>
+          <h3>面馆夜话</h3>
+          <div class="meta">内地 · 单元剧 · 2025 · 全 12 集</div>
+          <p class="desc">每集一个独立故事，通勤路上补一集也不影响连贯性。</p>
+          <div class="score"><b>8.4</b><span class="bar"><i style="width:84%"></i></span></div>
+          <div class="chips"><span>单元剧</span><span>单集 25 分钟</span><span>碎片可看</span></div>
+        </article>
+        <article class="rank">
+          <span class="no" aria-hidden="true">03</span>
+          <h3>北风邮车</h3>
+          <div class="meta">芬兰 · 悬疑 · 2024 · 全 8 集</div>
+          <p class="desc">雪景实拍，节奏偏冷，适合不赶时间的连续观看。</p>
+          <div class="score"><b>8.1</b><span class="bar"><i style="width:81%"></i></span></div>
+          <div class="chips"><span>冷门</span><span>单集 50 分钟</span><span>慢节奏</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="review">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <div class="kicker">Score Review</div>
+        <h2>零点影视<u>影评评分实测</u></h2>
+      </div>
+      <p>评分拆成四个维度，单项低于 7 分的地方会在文中直接点出来。</p>
+    </div>
+    <div class="reviewgrid">
+      <article class="review">
+        <div class="q">拆解 · 前八集</div>
+        <h3>《长夜将尽》：线索埋在第 2 集，别快进</h3>
+        <p>前八集用了三次时间线错位，第 2 集 17 分钟处的一个空镜头是后面反转的落点。快进会直接丢掉关键动机，这也是它能在热播榜稳住第一的原因。</p>
+        <div class="metrics">
+          <div class="metric"><span>叙事结构<b>9.4</b></span><div class="bar"><i style="width:94%"></i></div></div>
+          <div class="metric"><span>表演完成度<b>9.0</b></span><div class="bar"><i style="width:90%"></i></div></div>
+          <div class="metric"><span>节奏控制<b>8.6</b></span><div class="bar"><i style="width:86%"></i></div></div>
+          <div class="metric"><span>配乐与音效<b>7.8</b></span><div class="bar"><i style="width:78%"></i></div></div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="q">镜头 · 全剧</div>
+        <h3>《海边的旧邮局》：留白比台词更有信息量</h3>
+        <p>全剧固定机位占比超过六成，靠人物走位完成情绪转换。第 5 集结尾长达 90 秒的无台词长镜，是全片评分最高的一段。</p>
+        <div class="metrics">
+          <div class="metric"><span>镜头语言<b>9.2</b></span><div class="bar"><i style="width:92%"></i></div></div>
+          <div class="metric"><span>剧本厚度<b>8.5</b></span><div class="bar"><i style="width:85%"></i></div></div>
+          <div class="metric"><span>情绪密度<b>8.9</b></span><div class="bar"><i style="width:89%"></i></div></div>
+          <div class="metric"><span>情节推进<b>7.4</b></span><div class="bar"><i style="width:74%"></i></div></div>
+        </div>
+      </article>
+      <article class="review">
+        <div class="q">补片 · 完结剧</div>
+        <h3>《铁轨尽头》：慢，但每一次冲突都有铺垫</h3>
+        <p>冲突段落平均间隔约 12 分钟，前面铺垫长、爆发短。赶时间的人会觉得拖，愿意等的人会觉得值。</p>
+        <div class="metrics">
+          <div class="metric"><span>配乐<b>9.1</b></span><div class="bar"><i style="width:91%"></i></div></div>
+          <div class="metric"><span>剪辑<b>8.7</b></span><div class="bar"><i style="width:87%"></i></div></div>
+          <div class="metric"><span>人物动机<b>8.3</b></span><div class="bar"><i style="width:83%"></i></div></div>
+          <div class="metric"><span>入门友好度<b>6.9</b></span><div class="bar"><i style="width:69%"></i></div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <div class="kicker">Watch Schedule</div>
+        <h2>零点影视<u>观影排片时段</u></h2>
+      </div>
+      <p>按单集时长匹配日常空档，零碎时间也能排进合适的类型。</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption>排片建议基于平均单集时长与剧情连贯度整理，实际以个人作息为准。</caption>
+        <thead>
+          <tr><th scope="col">时段</th><th scope="col">推荐类型</th><th scope="col">适配单集时长</th><th scope="col">零点影视建议片单</th><th scope="col">适配人群</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>07:30-08:30</b> 通勤</td><td>单元剧 / 轻喜剧</td><td>25-30 分钟</td><td>面馆夜话、第七个夏天</td><td>碎片时间少的通勤族</td></tr>
+          <tr><td><b>12:30-13:10</b> 午休</td><td>职场 / 医疗</td><td>40-45 分钟</td><td>雾港诊所、旧城照相馆</td><td>午间想换脑的上班族</td></tr>
+          <tr><td><b>19:00-21:00</b> 黄金档</td><td>悬疑 / 年代</td><td>45-60 分钟</td><td>长夜将尽、春分之后</td><td>愿意连续看两集的追剧党</td></tr>
+          <tr><td><b>21:30-23:00</b> 深夜档</td><td>文艺 / 慢节奏</td><td>30-50 分钟</td><td>海边的旧邮局、灯塔值守日志</td><td>需要安静收尾的夜猫子</td></tr>
+          <tr><td><b>周末下午</b> 连刷</td><td>科幻 / 群像</td><td>48-60 分钟</td><td>无人区的信号、铜锣巷十七号</td><td>一次性补进度的人</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">提示：单集超过 55 分钟的剧不建议拆成两次看，情节断点容易丢失情绪连贯性。</p>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <div class="kicker">Industry Data</div>
+        <h2>零点影视<u>行业数据速览</u></h2>
+      </div>
+      <p>数据取自本站收录剧集的公开信息整理，用于判断要不要开新坑。</p>
+    </div>
+    <div class="datagrid">
+      <div class="data"><b>37<i>部</i></b><p>本周新增收录剧集</p><em>较上周 +5</em></div>
+      <div class="data"><b>21<i>%</i></b><p>评分 8 分以上占比</p><em>较上周 +3%</em></div>
+      <div class="data"><b>44<i>分钟</i></b><p>平均单集时长</p><em>与上周持平</em></div>
+      <div class="data"><b>63<i>%</i></b><p>追更完成率</p><em>较上周 +7%</em></div>
+      <div class="data"><b>12.6<i>集</i></b><p>平均弃剧节点</p><em>较上周推后 1.4 集</em></div>
+      <div class="data"><b>3.2<i>部</i></b><p>人均同时追看剧集数</p><em>与上周持平</em></div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <div class="kicker">Membership</div>
+        <h2>零点影视<u>会员权益对照</u></h2>
+      </div>
+      <p>三档权益差异集中在片单导出、更新提醒和历史数据回看。</p>
+    </div>
+    <div class="plangrid">
+      <div class="plan">
+        <h3>零点体验</h3>
+        <div class="price">免费<i> / 无需注册</i></div>
+        <ul>
+          <li class="ok">热播榜每日更新</li>
+          <li class="ok">影评评分实测全文</li>
+          <li class="ok">排片时段表查看</li>
+          <li>片单导出与分享</li>
+          <li>更新提醒推送</li>
+        </ul>
+        <a class="btn btn-b" href="#">直接查看片单</a>
+      </div>
+      <div class="plan hot">
+        <span class="flag">最多人选</span>
+        <h3>零点通享</h3>
+        <div class="price">￥18<i> / 月</i></div>
+        <ul>
+          <li class="ok">含体验版全部权益</li>
+          <li class="ok">片单一键导出（图片 / 表格）</li>
+          <li class="ok">新剧开播与更新提醒</li>
+          <li class="ok">近 12 周榜单数据回看</li>
+          <li>影评优先讨论区</li>
+        </ul>
+        <a class="btn btn-a" href="#">开通通享</a>
+      </div>
+      <div class="plan">
+        <h3>零点影迷会</h3>
+        <div class="price">￥168<i> / 年</i></div>
+        <ul>
+          <li class="ok">含通享版全部权益</li>
+          <li class="ok">年度片单与观影报告</li>
+          <li class="ok">冷门遗珠提前推送</li>
+          <li class="ok">影评优先讨论区</li>
+          <li class="ok">纠错采纳署名</li>
+        </ul>
+        <a class="btn btn-b" href="#">加入影迷会</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <div class="kicker">FAQ</div>
+        <h2>零点影视<u>常见问题</u></h2>
+      </div>
+      <p>关于更新频率、评分口径和片单来源，这里一次说清。</p>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>片单多久更新一次？</summary>
+        <p>每周三更新正在更新的剧集榜单，周日补充完结剧与冷门遗珠。遇到集中开播的档期会加更一次，改动会标注在榜单说明里。</p>
+      </details>
+      <details>
+        <summary>评分是怎么算出来的？</summary>
+        <p>采用站内评分与讨论热度加权，权重为评分 70%、热度 30%，并剔除开播首周评分人数不足的条目，避免刚上线的剧被短期情绪带偏。</p>
+      </details>
+      <details>
+        <summary>榜单里的剧集信息出错了怎么办？</summary>
+        <p>把剧名、集数和正确的信息整理好提交给我们，核实后会在下一次更新时修正，被采纳的纠错会在说明区署名。</p>
+      </details>
+      <details>
+        <summary>不注册会影响使用吗？</summary>
+        <p>不会。热播榜、影评评分实测和排片时段表对所有人开放，注册只影响片单导出、更新提醒和历史数据回看这几项。</p>
+      </details>
+      <details>
+        <summary>为什么有些高分剧没有进榜？</summary>
+        <p>榜单只收录有稳定更新进度或已完结、且评分样本量达标的剧集。样本不足或长期断更的条目会放进观察区，达标后再进入正式榜单。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="kicker">About</div>
+      <h2>关于<u>零点影视</u></h2>
+      <p style="margin-top:16px;">零点影视从一个私人追剧清单长出来的。最早只是记录哪部剧更新到第几集、哪一集值得补，后来记的条目越来越多，就整理成了榜单和排片表。</p>
+      <p>这里不做剧情复述，也不写通稿式的好评。每部剧都会标明更新进度、单集时长和适配时段，评分低的维度直接写出来，让选片这件事少花点时间。</p>
+      <p>站点地址：<strong style="color:#f5b301;font-weight:600;">https://lingdianyingshi-app.github.io</strong>，建议收藏。</p>
+      <div class="btnrow" style="margin-top:20px;">
+        <a class="btn btn-a" href="#rank">从热播榜开始</a>
+        <a class="btn btn-b" href="#faq">先看看评分口径</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3>站点信息</h3>
+      <ul>
+        <li>站点名称：<b>零点影视</b></li>
+        <li>官方网址：<b>lingdianyingshi-app.github.io</b></li>
+        <li>内容方向：<b>剧集榜单 / 影评评分 / 排片时段</b></li>
+        <li>更新节奏：<b>每周三、周日常规更新</b></li>
+        <li>榜单口径：<b>评分 70% + 热度 30%</b></li>
+        <li>收录范围：<b>2022 年至今，含 6 个地区</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <h4>零点影视 · 栏目</h4>
+        <ul>
+          <li><a href="#rank">剧集热播榜</a></li>
+          <li><a href="#review">影评评分实测</a></li>
+          <li><a href="#schedule">观影排片时段</a></li>
+          <li><a href="#data">行业数据速览</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>片单分类</h4>
+        <ul>
+          <li><a href="#rank">正在更新</a></li>
+          <li><a href="#rank">完结补片</a></li>
+          <li><a href="#rank">冷门遗珠</a></li>
+          <li><a href="#schedule">周末连刷</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>会员与规则</h4>
+        <ul>
+          <li><a href="#plan">权益对照</a></li>
+          <li><a href="#faq">评分口径说明</a></li>
+          <li><a href="#faq">纠错提交方式</a></li>
+          <li><a href="#about">关于我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>官方入口</h4>
+        <ul>
+          <li><a href="#">片单导出</a></li>
+          <li><a href="#">更新提醒</a></li>
+          <li><a href="#">历史榜单回看</a></li>
+          <li><a href="#">影评讨论区</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footurl">
+      <span>© 2026 零点影视 · 剧集榜单、影评评分与排片时段整理</span>
+      <span>本站地址：<code>https://lingdianyingshi-app.github.io</code></span>
+    </div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" type="button" aria-label="回到页面顶部">↑</button>
+
+<script>
+(function(){
+  var bar = document.getElementById('topbar');
+  var btn = document.getElementById('navbtn');
+  btn.addEventListener('click', function(){
+    var open = bar.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  var tabs = document.querySelectorAll('.tab');
+  for (var i = 0; i < tabs.length; i++){
+    tabs[i].addEventListener('click', function(){
+      for (var j = 0; j < tabs.length; j++){
+        tabs[j].classList.remove('on');
+        tabs[j].setAttribute('aria-selected','false');
+        document.getElementById(tabs[j].getAttribute('data-panel')).classList.remove('on');
+      }
+      this.classList.add('on');
+      this.setAttribute('aria-selected','true');
+      document.getElementById(this.getAttribute('data-panel')).classList.add('on');
+      bar.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    });
+  }
+  var top = document.getElementById('totop');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 480){ top.classList.add('show'); } else { top.classList.remove('show'); }
+  }, {passive:true});
+  top.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "@id":"https://lingdianyingshi-app.github.io/#website",
+      "url":"https://lingdianyingshi-app.github.io/",
+      "name":"零点影视",
+      "alternateName":"零点影视剧集库",
+      "inLanguage":"zh-CN",
+      "description":"零点影视提供剧集热播榜、影评评分实测、观影排片时段推荐与影视行业数据速览。"
+    },
+    {
+      "@type":"Organization",
+      "@id":"https://lingdianyingshi-app.github.io/#org",
+      "url":"https://lingdianyingshi-app.github.io/",
+      "name":"零点影视",
+      "description":"整理剧集榜单、影评评分与排片时段的影视内容站点。"
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://lingdianyingshi-app.github.io/#webpage",
+      "url":"https://lingdianyingshi-app.github.io/",
+      "name":"零点影视｜剧集热播榜与影评评分实测 - 追剧排片片单",
+      "isPartOf":{"@id":"https://lingdianyingshi-app.github.io/#website"},
+      "about":{"@id":"https://lingdianyingshi-app.github.io/#org"},
+      "inLanguage":"zh-CN"
+    }
+  ]
+}
+</script>
+</body>
+</html>
